@@ -1,0 +1,13 @@
+---
+- name: Deleting a User on the Remote Server
+  hosts: all
+  become: yes
+
+  tasks:
+    - name: User Deletion
+      user:
+        name: Roy
+        state: absent
+        remove: yes # This removes the user's home directory
+        force: yes # Use this to kill processes and force the deletion
+

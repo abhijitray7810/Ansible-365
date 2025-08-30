@@ -1,0 +1,29 @@
+---
+- name: Install and start Lighttpd Web Server on CentOS/RHEL
+  hosts: localhost
+  become: true
+
+  tasks:
+    - name: Install Lighttpd
+      yum:
+        name: lighttpd
+        state: present
+
+    - name: Start and enable Lighttpd service
+      service:
+        name: lighttpd
+        state: started
+        enabled: yes
+
+    - name: Deploy a test HTML page
+      copy:
+        dest: /var/www/lighttpd/index.html
+        content: |
+          <html>
+          <head><title>Welcome to Lighttpd via Ansible</title></head>
+          <body>
+            <h1>Lighttpd Server is Running on CentOS 🚀</h1>
+            <p>Deployed using Ansible.</p>
+          </body>
+          </html>
+

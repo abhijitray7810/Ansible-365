@@ -1,0 +1,22 @@
+--- 
+- name: This is my Ansible File Modules Playbook
+  hosts: all
+  become: true
+    
+
+
+  tasks:
+  - name: Creating a File 
+    file:
+      path: /home/abhi/Jenkins-365/Day-23/Remote2-File.txt
+      state: touch  
+
+
+  - name : Print anythink which i write 
+    shell: echo "Hello Abhi" > /home/abhi/Jenkins-365/Day-23/Remote2-File.txt
+  
+
+  - name: Creating a Directory
+    file:
+      path: /home/abhi/Jenkins-365/Day-24
+      state: mkdir    

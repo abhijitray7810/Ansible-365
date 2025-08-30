@@ -1,0 +1,36 @@
+---
+- name: Caddy server install and start
+  hosts: localhost
+  become: true   # Grant root privileges for tasks
+
+  tasks:
+    - name: Install dependencies
+      yum:
+        name: 
+          - curl
+          - gnupg
+        state: present
+
+    - name: Add Caddy repository
+      get_url:
+        url: https://dl.cloudsmith.io/public/caddy/stable/rpm/caddy-stable.repo
+        dest: /etc/yum.repos.d/caddy-stable.repo
+
+    - name: Install Caddy server
+      yum:
+        name: caddy
+        state: present
+
+    - name: Start Caddy service
+      systemd:
+        name: caddy
+        state: started
+        enabled: true
+
+    - name: Verify Caddy is running
+      command: caddy version
+      register: caddy_version
+
+    - name: Display Caddy version
+      debug:
+
