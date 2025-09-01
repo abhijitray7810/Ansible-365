@@ -1,0 +1,14 @@
+---
+- name: Download File from Internet To Remote
+  hosts: all
+  become: yes
+
+
+  tasks:
+  - name: Download File
+    get_url:
+      url: https://www.python.org/ftp/python/3.12.2/Python-3.12.2.tar.xz
+      dest: /home/abhi/Jenkins-365/Day-24/
+      owner: abhi
+      group: abhi
+      mode: '0777'
