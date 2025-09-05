@@ -1,0 +1,22 @@
+---
+- name: Nginx server install and start 
+  hosts: localhost
+  become: true   # <-- Add this line
+
+  tasks:
+    - name: Install Nginx server
+      yum:
+        name: nginx
+        state: present
+      tags: install-nginx
+
+
+
+    - name: Starting the nginx service
+      service: 
+        name: nginx
+        state: started
+        enabled: true
+      tags: Starting Nginx # tags ta all time "- name" ar soja likta hobe na chara hobe na dela ki puro playbook ta ka run na kore sudhu ai tags ar name mention kotla o hobe " ansible-playbook Tags-Ex.yaml      
+  
+

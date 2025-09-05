@@ -1,0 +1,30 @@
+---
+- name: Kill the process which are running background
+  hosts: all
+  become: yes
+
+  tasks:
+  - name: Find a process and kill it
+    shell: "pgrep nginx"
+    register: nginx_pids
+    ignore_errors: yes
+
+  - name: Kill the processes
+    shell: "kill {{ item }}"
+    with_items: "{{ nginx_pids.stdout_lines }}"
+    when: nginx_pids.rc == 0
+
+  - name: start the service
+    service: 
+      name: nginx
+      state: started
+
+# Simple Kill server.yaml file
+      
+      # ---
+      # - name: kill a process
+      # hosts: all
+      # tasks: 
+      # - name: find a process and kill it
+      # ignore_error: yes
+      # shell: "pgrep nginx | xargs kill"

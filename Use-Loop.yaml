@@ -1,0 +1,18 @@
+---
+- name: User Managemant
+  hosts: all
+
+
+
+  tasks: 
+  - name: User creation
+    user:
+      name: "{{ item }}"
+      comment: new user adding for my remote server
+      shell: /bin/bash
+
+    loop:
+      - abhijit1
+      - abhijit2
+      - abhijit3
+      - abhijit4 # dela ki hobe ata loop ar modha joto gulo name likha holo sob kota user toire hoya jabe
