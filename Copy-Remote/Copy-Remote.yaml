@@ -1,0 +1,13 @@
+---
+- name: Copying files to remote server 172.25.174.254
+  hosts: all
+
+  tasks:
+    - name: Copy files
+      copy:
+        src: /home/abhi/Documents/Ansible-365/Playbook/Apache-server.yaml
+        dest: /home/abhi/Jenkins-365/Day-16-22/Apache-server-copy.yaml
+        mode: ugo=rw
+        
+  
+          ## mode: 0777
