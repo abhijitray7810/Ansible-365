@@ -15,6 +15,7 @@ Check if Ansible is installed:
 
 ```bash
 ansible --version
+```
 📜 Playbook: install_httpd.yml
 yaml
 Copy code
@@ -35,7 +36,7 @@ Copy code
         name: apache2
         state: present
       when: ansible_os_family == "Ubuntu"
-🛠 Explanation of the Playbook
+# 🛠 Explanation of the Playbook
 hosts: all → Run on all machines from the inventory file.
 
 become: yes → Run tasks with sudo/root privileges.
@@ -48,7 +49,7 @@ Install apache2 if the system belongs to Ubuntu/Debian family.
 
 The when condition ensures the correct package manager (yum vs apt) and package name are used.
 
-▶️ Running the Playbook
+# ▶️ Running the Playbook
 Run the playbook with:
 
 bash
@@ -58,13 +59,15 @@ ansible-playbook -i inventory install_httpd.yml
 
 install_httpd.yml → the playbook file
 
-📋 Checking Ansible Facts
+# 📋 Checking Ansible Facts
 This playbook uses the fact ansible_os_family to decide whether to use httpd or apache2.
 You can check all facts collected by Ansible using the setup module:
 
-bash
-Copy code
+```bash
+
 ansible localhost -m setup
+
+```
 ✔️ This will display all variables (facts) for the host, such as:
 
 ansible_os_family (RedHat / Debian / Ubuntu, etc.)
@@ -77,7 +80,7 @@ ansible_processor details
 
 and many more system facts.
 
-📋 Sample Output (Fact Check)
+# 📋 Sample Output (Fact Check)
 bash
 Copy code
 "ansible_os_family": "RedHat"
@@ -87,7 +90,7 @@ Copy code
     "GenuineIntel",
     "Intel(R) Xeon(R) CPU"
 ]
-✅ Summary
+# ✅ Summary
 This playbook installs Apache HTTP server on both RedHat and Ubuntu systems.
 
 Uses the when condition with ansible_os_family to choose the right package.
