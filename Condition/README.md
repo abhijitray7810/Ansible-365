@@ -52,9 +52,11 @@ The when condition ensures the correct package manager (yum vs apt) and package 
 # ▶️ Running the Playbook
 Run the playbook with:
 
-bash
-Copy code
+```bash
+
 ansible-playbook -i inventory install_httpd.yml
+
+```
 -i inventory → path to your inventory file (e.g. hosts.ini)
 
 install_httpd.yml → the playbook file
