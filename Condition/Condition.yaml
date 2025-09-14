@@ -1,1 +1,23 @@
+---
+- name: installing Httpd
+  hosts: all
+  become: yes
 
+  tasks:
+  - name: Installing httpd on Redhat
+    yum:
+      name: httpd
+      state: present
+    when: ansible_os_family == "RedHat"
+
+
+
+  - name: Installing apache2 on ubuntu
+    apt:
+      name: apache2
+      state: present
+    when: ansible_os_family == "Ubuntu"
+
+
+
+      #ansible localhost -m setup [[[[ ata localhost modha joto sob condition ar variables used hoyacha ta show koraba  
