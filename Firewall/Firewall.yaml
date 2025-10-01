@@ -1,0 +1,18 @@
+---
+- name: Firewall change – enable firewall service
+  hosts: all
+  become: yes
+
+  tasks:
+    - name: Enable port 80/tcp in firewalld
+      ansible.posix.firewalld:
+        port: 80/tcp
+        permanent: yes
+        state: enabled
+        immediate: yes          # apply right now (no extra reload needed)
+
+    # --- only required if you omit 'immediate: yes' above ---
+    # - name: Reload firewalld
+    #   systemd:
+    #     name: firewalld
+    #     state: reloaded
