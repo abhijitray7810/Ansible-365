@@ -1,0 +1,26 @@
+---
+- name: This is my Ansible File Modules Playbook
+  hosts: all
+  become: true
+
+  tasks:
+    - name: Creating a file
+      ansible.builtin.file:
+        path: /home/abhi/Jenkins-365/Day-23/Remote2-File.txt
+        state: touch
+        owner: abhi
+        group: abhi
+        mode: '0644'
+
+    - name: Print something into the file
+      ansible.builtin.shell: echo "Hello Abhi" > /home/abhi/Jenkins-365/Day-23/Remote2-File.txt
+      # idempotent alternative:
+      # copy: content="Hello Abhi\n" dest=/home/abhi/Jenkins-365/Day-23/Remote2-File.txt
+
+    - name: Creating a directory
+      ansible.builtin.file:
+        path: /home/abhi/Jenkins-365/Day-24
+        state: directory        # NOT 'mkdir'
+        owner: abhi
+        group: abhi
+        mode: '0755'
