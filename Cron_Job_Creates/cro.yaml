@@ -1,0 +1,15 @@
+---
+- name: This is my CRON-JOBS file
+  hosts: all
+
+  tasks:
+    - name: Creating a cron job
+      cron:
+        name: Run Script
+        minute: "30"
+        hour: "18"
+        day: "15"
+        month: "*"
+        weekday: "*"
+        user: abhi
+        job: /home/abhi/Jenkins-365/Day-23/Remote3-File.yaml
