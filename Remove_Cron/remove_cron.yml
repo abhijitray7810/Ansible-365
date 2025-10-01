@@ -1,0 +1,10 @@
+---
+- name: Modify Cron job
+  hosts: all
+
+  tasks:
+    - name: Remove the cron job file
+      cron:
+        name: "Run & Test Script"
+        state: absent
+        user: abhi
