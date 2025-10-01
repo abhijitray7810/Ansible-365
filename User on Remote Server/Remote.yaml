@@ -1,0 +1,13 @@
+---
+- name: Creating User on Remote Server / User Management
+  hosts: all
+  become: yes
+
+  tasks:
+    - name: User Creation
+      user:
+        name: Roy
+        comment: New User Adding for New client
+        # home: /home/Roy   # default if omitted
+        shell: /bin/bash
+        # group: abhijit    # only if that group exists
