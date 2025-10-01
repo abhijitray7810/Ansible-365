@@ -1,0 +1,5 @@
+    - name: Ensure group abhijit exists
+      group:
+        name: abhijit
+        state: present
+      when: false   # delete this line if you want the group created
