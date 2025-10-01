@@ -1,0 +1,10 @@
+---
+- name: Delete a downloaded file from the remote server
+  hosts: all
+  become: yes
+
+  tasks:
+    - name: Ensure downloaded file is deleted
+      ansible.builtin.file:
+        path: /home/abhi/Jenkins-365/Day-24/Python-3.12.2.tar.xz
+        state: absent
