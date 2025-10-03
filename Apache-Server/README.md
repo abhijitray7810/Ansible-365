@@ -6,7 +6,7 @@ It also deploys a simple **HTML test page** to verify that the server is running
 ---
 
 ## 📂 Playbook File
-`apache-playbook.yml`
+`ansible playbook apache-playbook.yml`
 
 ## 🔧 Features
 - Installs **Apache2** on Debian/Ubuntu.  
