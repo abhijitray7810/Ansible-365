@@ -3,7 +3,7 @@
 This project contains an **Ansible playbook** to install, start, and configure the **Apache Web Server** on both **Debian/Ubuntu** and **RedHat/CentOS** based systems.  
 It also deploys a simple **HTML test page** to verify that the server is running correctly.
 
----
+--- 
  
 ## 📂 Playbook File
 `ansible playbook apache-playbook.yml`
