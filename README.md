@@ -1,4 +1,4 @@
-# Ansible-365
+# Ansible-365 
 
 Ansible-365 is a hands-on collection of **Ansible playbooks, roles, and automation scripts** designed for daily DevOps practice.  
 This repository covers real-world system administration, server configuration, security, process management, and automation use cases.
